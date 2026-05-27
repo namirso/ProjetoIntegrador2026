@@ -1,0 +1,241 @@
+[gd_scene format=3 uid="uid://c6flh76a7ecki"]
+
+[ext_resource type="Script" uid="uid://blcbxajyowba" path="res://scripts/level.gd" id="1_s61cd"]
+[ext_resource type="PackedScene" uid="uid://b51g5opkdjf2h" path="res://cenas/portal.tscn" id="2_yons7"]
+[ext_resource type="Texture2D" uid="uid://cv7005a4pt8wj" path="res://assets/LEVELDESIGNSSLA.png" id="3_57n2r"]
+[ext_resource type="Texture2D" uid="uid://cpxdw7ykg183b" path="res://assets/canto direito P1.png" id="4_3uaay"]
+[ext_resource type="Texture2D" uid="uid://bsc6y8qoeryp2" path="res://assets/canto esquerdo P1.png" id="5_xuwwd"]
+[ext_resource type="Texture2D" uid="uid://ch2cyx06pneg0" path="res://assets/parede meio P1.png" id="6_fa2nd"]
+[ext_resource type="Texture2D" uid="uid://bt3lubrugvrco" path="res://assets/cenario/balcao/aério 1.png" id="8_irbe4"]
+[ext_resource type="Texture2D" uid="uid://8b7drkqh54op" path="res://assets/cenario/balcao/aério 2.png" id="9_p6gm2"]
+[ext_resource type="Texture2D" uid="uid://btq62535d15ku" path="res://assets/cenario/balcao/balcão canto D.png" id="10_pav1f"]
+[ext_resource type="Texture2D" uid="uid://d11vspx8fhx64" path="res://assets/cenario/balcao/balcão canto E.png" id="11_jfe7u"]
+[ext_resource type="Texture2D" uid="uid://bwxi010xn1u7e" path="res://assets/cenario/balcao/balcão meio1.png" id="12_sxwyq"]
+[ext_resource type="Texture2D" uid="uid://cjnso1nwgatxc" path="res://assets/cenario/lixeira 1.png" id="13_kjqyc"]
+[ext_resource type="Texture2D" uid="uid://diu4ud57fdb2q" path="res://assets/cenario/armário metal.png" id="14_b8icp"]
+[ext_resource type="Texture2D" uid="uid://c0wt2cl6gj5ft" path="res://assets/cenario/luz cirurgica.png" id="15_jegqs"]
+[ext_resource type="Texture2D" uid="uid://ckaagr0df1la0" path="res://assets/cenario/mesa cirurgica.png" id="16_1gj0f"]
+[ext_resource type="PackedScene" uid="uid://dqeskmf4awv25" path="res://cenas/players/coelho.tscn" id="17_8x7bt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkef1"]
+size = Vector2(210, 418.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rrve6"]
+size = Vector2(237, 563.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5va0"]
+size = Vector2(7408.25, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_70wjy"]
+size = Vector2(587, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqbx5"]
+size = Vector2(71, 1127.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmt22"]
+size = Vector2(115, 157.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wc20y"]
+size = Vector2(774, 17)
+
+[node name="laboratorio" type="Node2D" unique_id=571901013]
+position = Vector2(1, 1)
+script = ExtResource("1_s61cd")
+
+[node name="Portal" parent="." unique_id=1230689211 instance=ExtResource("2_yons7")]
+position = Vector2(1320, 169)
+caminho_proxima_fase = "res://cenas/fases/floresta.tscn"
+
+[node name="Leveldesignssla" type="Sprite2D" parent="." unique_id=1226695088]
+visible = false
+position = Vector2(7407, 753.49994)
+scale = Vector2(1.7633333, 2.2846608)
+texture = ExtResource("3_57n2r")
+
+[node name="plano fundo" type="Node" parent="." unique_id=1875149803]
+
+[node name="CantoDireitoP1" type="Sprite2D" parent="plano fundo" unique_id=1187629958]
+light_mask = 512
+position = Vector2(7160.0005, 542)
+scale = Vector2(0.6, 0.5)
+texture = ExtResource("4_3uaay")
+metadata/_edit_lock_ = true
+
+[node name="CantoEsquerdoP1" type="Sprite2D" parent="plano fundo" unique_id=893767704]
+light_mask = 512
+position = Vector2(245.00002, 541)
+scale = Vector2(0.6, 0.5)
+texture = ExtResource("5_xuwwd")
+metadata/_edit_lock_ = true
+
+[node name="ParedeMeioP1" type="Sprite2D" parent="plano fundo" unique_id=112651808]
+light_mask = 512
+position = Vector2(885.00006, 541)
+scale = Vector2(0.6, 0.5)
+texture = ExtResource("6_fa2nd")
+metadata/_edit_lock_ = true
+
+[node name="ParedeMeioP2" type="Sprite2D" parent="plano fundo" unique_id=1277923421]
+light_mask = 512
+position = Vector2(1690.0001, 541)
+scale = Vector2(0.6, 0.5)
+texture = ExtResource("6_fa2nd")
+metadata/_edit_lock_ = true
+
+[node name="ParedeMeioP3" type="Sprite2D" parent="plano fundo" unique_id=1472135102]
+light_mask = 512
+position = Vector2(2494.6, 542)
+scale = Vector2(0.6, 0.5)
+texture = ExtResource("6_fa2nd")
+metadata/_edit_lock_ = true
+
+[node name="ParedeMeioP4" type="Sprite2D" parent="plano fundo" unique_id=1374306938]
+light_mask = 512
+position = Vector2(3299.6, 542)
+scale = Vector2(0.6, 0.5)
+texture = ExtResource("6_fa2nd")
+metadata/_edit_lock_ = true
+
+[node name="ParedeMeioP5" type="Sprite2D" parent="plano fundo" unique_id=1387157131]
+light_mask = 512
+position = Vector2(4097.6, 541)
+scale = Vector2(0.6, 0.5)
+texture = ExtResource("6_fa2nd")
+metadata/_edit_lock_ = true
+
+[node name="ParedeMeioP6" type="Sprite2D" parent="plano fundo" unique_id=560701217]
+light_mask = 512
+position = Vector2(4902.5996, 541)
+scale = Vector2(0.6, 0.5)
+texture = ExtResource("6_fa2nd")
+metadata/_edit_lock_ = true
+
+[node name="ParedeMeioP7" type="Sprite2D" parent="plano fundo" unique_id=1053191310]
+light_mask = 512
+position = Vector2(5707.2, 542)
+scale = Vector2(0.6, 0.5)
+texture = ExtResource("6_fa2nd")
+metadata/_edit_lock_ = true
+
+[node name="ParedeMeioP8" type="Sprite2D" parent="plano fundo" unique_id=1372511026]
+light_mask = 512
+position = Vector2(6512.2, 542)
+scale = Vector2(0.6, 0.5)
+texture = ExtResource("6_fa2nd")
+metadata/_edit_lock_ = true
+
+[node name="sprites cenario" type="Node" parent="." unique_id=1320645443]
+
+[node name="Aério1" type="Sprite2D" parent="sprites cenario" unique_id=1511552587]
+position = Vector2(1412.7001, 562.25)
+scale = Vector2(0.28156868, 0.2992957)
+texture = ExtResource("8_irbe4")
+
+[node name="Aério2" type="Sprite2D" parent="sprites cenario" unique_id=1400549270]
+position = Vector2(1413.0503, 355.5)
+scale = Vector2(0.28174716, 0.3)
+texture = ExtResource("9_p6gm2")
+
+[node name="BalcãoCantoD" type="Sprite2D" parent="sprites cenario" unique_id=1952832996]
+position = Vector2(1968.02, 948.4701)
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("10_pav1f")
+metadata/_edit_lock_ = true
+
+[node name="BalcãoCantoE" type="Sprite2D" parent="sprites cenario" unique_id=639057951]
+position = Vector2(1442.02, 948.47003)
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("11_jfe7u")
+metadata/_edit_lock_ = true
+
+[node name="BalcãoMeio1" type="Sprite2D" parent="sprites cenario" unique_id=543436538]
+position = Vector2(1725.02, 948.4701)
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("12_sxwyq")
+metadata/_edit_lock_ = true
+
+[node name="Lixeira1" type="Sprite2D" parent="sprites cenario" unique_id=917600214]
+position = Vector2(2249, 1000)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_kjqyc")
+metadata/_edit_lock_ = true
+
+[node name="ArmárioMetal" type="Sprite2D" parent="sprites cenario" unique_id=414356078]
+position = Vector2(2487.6, 796.30005)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("14_b8icp")
+metadata/_edit_lock_ = true
+
+[node name="LuzCirurgica" type="Sprite2D" parent="sprites cenario" unique_id=739417865]
+position = Vector2(175, 777.00006)
+scale = Vector2(0.29299065, 0.33984548)
+texture = ExtResource("15_jegqs")
+metadata/_edit_lock_ = true
+
+[node name="MesaCirurgica" type="Sprite2D" parent="sprites cenario" unique_id=1613546583]
+position = Vector2(534, 932.6)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("16_1gj0f")
+metadata/_edit_lock_ = true
+
+[node name="personagens" type="Node" parent="." unique_id=2010767388]
+
+[node name="Coelho" parent="personagens" unique_id=1159330179 instance=ExtResource("17_8x7bt")]
+top_level = true
+position = Vector2(458, 638)
+collision_mask = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=486258387]
+position = Vector2(-3, -86)
+limit_left = 0
+limit_top = 1
+limit_right = 2614
+limit_bottom = 1077
+
+[node name="WallJump" type="StaticBody2D" parent="." unique_id=1051582236]
+collision_layer = 3
+
+[node name="Aerios" type="CollisionShape2D" parent="WallJump" unique_id=2067327251]
+light_mask = 3
+position = Vector2(1410.0001, 458.125)
+shape = SubResource("RectangleShape2D_fkef1")
+
+[node name="Armario" type="CollisionShape2D" parent="WallJump" unique_id=942587541]
+light_mask = 3
+position = Vector2(2481.6, 797.30005)
+shape = SubResource("RectangleShape2D_rrve6")
+
+[node name="Colisões" type="StaticBody2D" parent="." unique_id=1640473038]
+position = Vector2(887.75, 1077.5)
+collision_layer = 2
+
+[node name="Teto" type="CollisionShape2D" parent="Colisões" unique_id=2013129927]
+position = Vector2(2815.25, -1122.5)
+shape = SubResource("RectangleShape2D_w5va0")
+debug_color = Color(0.16035244, 0.5869636, 0.7310322, 0.41960785)
+
+[node name="Chão" type="CollisionShape2D" parent="Colisões" unique_id=1945822167]
+position = Vector2(2812.125, 47.5)
+shape = SubResource("RectangleShape2D_w5va0")
+debug_color = Color(0.16035244, 0.5869636, 0.7310322, 0.41960785)
+
+[node name="Mesa" type="CollisionShape2D" parent="Colisões" unique_id=1221936827]
+position = Vector2(-356.25, -217)
+shape = SubResource("RectangleShape2D_70wjy")
+
+[node name="Inicio" type="CollisionShape2D" parent="Colisões" unique_id=1250574592]
+position = Vector2(-923.25, -520.625)
+shape = SubResource("RectangleShape2D_gqbx5")
+
+[node name="Lixeira2" type="CollisionShape2D" parent="Colisões" unique_id=772384840]
+position = Vector2(1355.75, -78.625)
+shape = SubResource("RectangleShape2D_mmt22")
+
+[node name="Fim" type="CollisionShape2D" parent="Colisões" unique_id=739455065]
+position = Vector2(1761.25, -555.5)
+shape = SubResource("RectangleShape2D_gqbx5")
+
+[node name="Balcão" type="CollisionShape2D" parent="Colisões" unique_id=803846745]
+position = Vector2(796.25, -255)
+shape = SubResource("RectangleShape2D_wc20y")
+one_way_collision = true

@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://bhjsv3q3d4qu1"]
+
+[ext_resource type="Script" uid="uid://blcbxajyowba" path="res://scripts/level.gd" id="1_sluse"]
+[ext_resource type="PackedScene" uid="uid://dqeskmf4awv25" path="res://cenas/players/coelho.tscn" id="2_ru4u6"]
+[ext_resource type="PackedScene" uid="uid://b51g5opkdjf2h" path="res://cenas/portal.tscn" id="2_wnohs"]
+[ext_resource type="Texture2D" uid="uid://bh1fyn4baj4ta" path="res://assets/cenario/floresta/moita.png" id="4_7fgtm"]
+[ext_resource type="Texture2D" uid="uid://bxsxdcdy1txy7" path="res://assets/cenario/floresta/arvore.png" id="4_wnohs"]
+[ext_resource type="Texture2D" uid="uid://364g36eu4u0b" path="res://assets/cenario/floresta/pedra.png" id="6_ugfv0"]
+[ext_resource type="PackedScene" uid="uid://b1qa7xyuj46dp" path="res://cenas/area_interacao.tscn" id="7_50ojs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fgtm"]
+size = Vector2(3885, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ru4u6"]
+size = Vector2(10, 1001)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnohs"]
+size = Vector2(39, 785)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugfv0"]
+size = Vector2(676.5, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50ojs"]
+size = Vector2(10.917362, 18.338554)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n6fpf"]
+radius = 135.0
+height = 444.0
+
+[node name="floresta" type="Node2D" unique_id=1716129595]
+position = Vector2(42, 550)
+script = ExtResource("1_sluse")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=160657108]
+offset_left = -42.0
+offset_top = -589.0
+offset_right = 3845.0
+offset_bottom = 404.0
+color = Color(0.36265907, 0.76768094, 0.90338916, 1)
+
+[node name="Portal" parent="." unique_id=1230689211 instance=ExtResource("2_wnohs")]
+position = Vector2(2634, 290)
+caminho_proxima_fase = "res://cenas/fases/laboratorio.tscn"
+
+[node name="Bordas" type="StaticBody2D" parent="." unique_id=232016655]
+collision_layer = 2
+
+[node name="Chao" type="CollisionShape2D" parent="Bordas" unique_id=316338645]
+position = Vector2(1900.5, 426)
+shape = SubResource("RectangleShape2D_7fgtm")
+metadata/_edit_lock_ = true
+
+[node name="inicio" type="CollisionShape2D" parent="Bordas" unique_id=1617583281]
+position = Vector2(-47, -96.5)
+shape = SubResource("RectangleShape2D_ru4u6")
+
+[node name="fim" type="CollisionShape2D" parent="Bordas" unique_id=236680970]
+position = Vector2(3862, 11)
+shape = SubResource("RectangleShape2D_wnohs")
+metadata/_edit_lock_ = true
+
+[node name="teto" type="CollisionShape2D" parent="Bordas" unique_id=1834963190]
+position = Vector2(296, -604)
+shape = SubResource("RectangleShape2D_ugfv0")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2053396645]
+position = Vector2(657, 19)
+limit_left = 0
+limit_top = 1
+limit_right = 7409
+limit_bottom = 955
+limit_smoothed = true
+
+[node name="Walljump" type="StaticBody2D" parent="." unique_id=2033497841]
+position = Vector2(477, -138)
+collision_layer = 3
+
+[node name="cenario atras" type="Node" parent="." unique_id=47649895]
+
+[node name="Moita" type="Sprite2D" parent="cenario atras" unique_id=382425387]
+position = Vector2(950.00006, 900.00006)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_7fgtm")
+metadata/_edit_lock_ = true
+
+[node name="arvore" type="Sprite2D" parent="cenario atras" unique_id=1074439979]
+position = Vector2(1066.25, 522.5)
+scale = Vector2(1.3167007, 1.3429438)
+texture = ExtResource("4_wnohs")
+metadata/_edit_lock_ = true
+
+[node name="personagens" type="Node" parent="." unique_id=188357168]
+
+[node name="Coelho" parent="personagens" unique_id=204825905 instance=ExtResource("2_ru4u6")]
+position = Vector2(424, 616)
+collision_mask = 2
+
+[node name="cenario frente" type="Node" parent="." unique_id=1964374392]
+
+[node name="Moita2" type="Sprite2D" parent="cenario frente" unique_id=1441156936]
+light_mask = 3
+z_as_relative = false
+position = Vector2(24, 818)
+scale = Vector2(1.1885715, 1.1169673)
+texture = ExtResource("4_7fgtm")
+flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="Pedra" type="Sprite2D" parent="cenario frente" unique_id=1405274030]
+position = Vector2(1613, 885)
+scale = Vector2(0.23099078, 0.25)
+texture = ExtResource("6_ugfv0")
+metadata/_edit_lock_ = true
+
+[node name="Pedra2" type="Sprite2D" parent="cenario frente" unique_id=1306813788]
+position = Vector2(1804, 732.3281)
+scale = Vector2(0.5407067, 0.7954082)
+texture = ExtResource("6_ugfv0")
+metadata/_edit_lock_ = true
+
+[node name="Colisões" type="StaticBody2D" parent="." unique_id=1964075339]
+collision_layer = 2
+
+[node name="pedra" type="CollisionShape2D" parent="Colisões" unique_id=1238035192]
+position = Vector2(1574, 364.06952)
+scale = Vector2(12.274015, 9.713906)
+shape = SubResource("RectangleShape2D_50ojs")
+
+[node name="pedra2" type="CollisionShape2D" parent="Colisões" unique_id=1106329481]
+position = Vector2(1744, 213)
+shape = SubResource("CapsuleShape2D_n6fpf")
+
+[node name="AreaInteracao" parent="." unique_id=1712714634 instance=ExtResource("7_50ojs")]
+position = Vector2(1550, 204)
+texto_da_interacao = "Use [ CTRL ] para pular mais alto"

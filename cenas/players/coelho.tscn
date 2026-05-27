@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://dqeskmf4awv25"]
+
+[ext_resource type="Script" uid="uid://8a2akbou3pp2" path="res://scripts/Coelho.gd" id="1_2gqbd"]
+[ext_resource type="Texture2D" uid="uid://t8udi1gadlhq" path="res://assets/personagens/coelho/000.png" id="2_1lqve"]
+[ext_resource type="Texture2D" uid="uid://b8ylkkc5hwvx0" path="res://assets/personagens/coelho/001.png" id="3_1kobk"]
+[ext_resource type="Texture2D" uid="uid://dp75ey8yxafeh" path="res://assets/personagens/coelho/002.png" id="4_c43nj"]
+[ext_resource type="Texture2D" uid="uid://buaunkkfyd3v5" path="res://assets/personagens/coelho/003.png" id="5_yo8xu"]
+[ext_resource type="Texture2D" uid="uid://bgheotma7wgh6" path="res://assets/personagens/coelho/004.png" id="6_ggpfh"]
+[ext_resource type="Texture2D" uid="uid://bgmeu2m146htn" path="res://assets/personagens/coelho/005.png" id="7_so5it"]
+[ext_resource type="Texture2D" uid="uid://cp7e7oignby5f" path="res://assets/personagens/coelho/006.png" id="8_1wgsj"]
+[ext_resource type="Texture2D" uid="uid://cld8a3sn7bqwy" path="res://assets/personagens/coelho/007.png" id="9_1kobk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nqwki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1lqve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1kobk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c43nj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yo8xu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ggpfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_so5it")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1wgsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1kobk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afcpg"]
+size = Vector2(83, 78)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1lqve"]
+bg_color = Color(0.45303786, 0.70045817, 0.31927952, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Coelho" type="CharacterBody2D" unique_id=204825905]
+collision_layer = 3
+script = ExtResource("1_2gqbd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1140295753]
+position = Vector2(2, -7.7068253)
+scale = Vector2(0.08, 0.07882196)
+sprite_frames = SubResource("SpriteFrames_nqwki")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1602113733]
+position = Vector2(-0.5, 0.29317474)
+shape = SubResource("RectangleShape2D_afcpg")
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=527778582]
+position = Vector2(-32, 0)
+target_position = Vector2(-15, 0)
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=2129281591]
+position = Vector2(30, 0)
+target_position = Vector2(15, 0)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=919948090]
+z_index = 55
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -57.5
+offset_top = -82.0
+offset_right = 57.5
+offset_bottom = -55.0
+grow_horizontal = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_1lqve")
+show_percentage = false
