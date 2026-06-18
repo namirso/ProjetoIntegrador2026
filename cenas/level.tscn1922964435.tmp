@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6flh76a7ecki"]
+
+[ext_resource type="Texture2D" uid="uid://cpxdw7ykg183b" path="res://assets/canto direito P1.png" id="1_8ee1x"]
+[ext_resource type="Script" uid="uid://blcbxajyowba" path="res://cenas/level.gd" id="1_afcpg"]
+[ext_resource type="Texture2D" uid="uid://bsc6y8qoeryp2" path="res://assets/canto esquerdo P1.png" id="2_ggxsj"]
+[ext_resource type="Texture2D" uid="uid://ch2cyx06pneg0" path="res://assets/parede meio P1.png" id="3_5uqjh"]
+[ext_resource type="PackedScene" uid="uid://dqeskmf4awv25" path="res://cenas/players/coelho.tscn" id="4_5uqjh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5va0"]
+size = Vector2(1770.5, 76)
+
+[node name="Level" type="Node2D"]
+position = Vector2(1, 1)
+script = ExtResource("1_afcpg")
+
+[node name="background" type="Node" parent="."]
+
+[node name="CantoDireitoP1" type="Sprite2D" parent="background"]
+position = Vector2(1533, 539)
+scale = Vector2(0.6, 0.5)
+texture = ExtResource("1_8ee1x")
+metadata/_edit_lock_ = true
+
+[node name="CantoEsquerdoP1" type="Sprite2D" parent="background"]
+position = Vector2(245.00002, 541)
+scale = Vector2(0.6, 0.5)
+texture = ExtResource("2_ggxsj")
+metadata/_edit_lock_ = true
+
+[node name="ParedeMeioP1" type="Sprite2D" parent="background"]
+position = Vector2(885.00006, 541)
+scale = Vector2(0.6, 0.5)
+texture = ExtResource("3_5uqjh")
+metadata/_edit_lock_ = true
+
+[node name="personagens" type="Node" parent="."]
+
+[node name="Coelho" parent="personagens" instance=ExtResource("4_5uqjh")]
+position = Vector2(182, 256)
+collision_mask = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(887.75, 1077.5)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1.75, -40.5)
+shape = SubResource("RectangleShape2D_w5va0")
+
+[node name="Camera2D" type="Camera2D" parent="."]

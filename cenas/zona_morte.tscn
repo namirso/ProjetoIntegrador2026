@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://6523ou34ncko"]
+
+[ext_resource type="Script" uid="uid://7it8n34bf5ro" path="res://scripts/zona_morte.gd" id="1_dt2jl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38e63"]
+size = Vector2(586, 20)
+
+[node name="ZonaMorte" type="Area2D" unique_id=1143527099]
+script = ExtResource("1_dt2jl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=268608355]
+shape = SubResource("RectangleShape2D_38e63")

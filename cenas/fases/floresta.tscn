@@ -1,0 +1,232 @@
+[gd_scene format=3 uid="uid://bhjsv3q3d4qu1"]
+
+[ext_resource type="Script" uid="uid://blcbxajyowba" path="res://scripts/level.gd" id="1_sluse"]
+[ext_resource type="PackedScene" uid="uid://dqeskmf4awv25" path="res://cenas/players/coelho.tscn" id="2_ru4u6"]
+[ext_resource type="PackedScene" uid="uid://b51g5opkdjf2h" path="res://cenas/portal.tscn" id="2_wnohs"]
+[ext_resource type="Texture2D" uid="uid://bh1fyn4baj4ta" path="res://assets/cenario/floresta/moita.png" id="4_7fgtm"]
+[ext_resource type="Texture2D" uid="uid://bxsxdcdy1txy7" path="res://assets/cenario/floresta/arvore.png" id="4_wnohs"]
+[ext_resource type="Texture2D" uid="uid://364g36eu4u0b" path="res://assets/cenario/floresta/pedra.png" id="6_ugfv0"]
+[ext_resource type="PackedScene" uid="uid://b1qa7xyuj46dp" path="res://cenas/area_interacao.tscn" id="7_50ojs"]
+[ext_resource type="PackedScene" uid="uid://cwdn2r6vjjgss" path="res://cenas/chao_caindo.tscn" id="8_n6fpf"]
+[ext_resource type="PackedScene" uid="uid://c4gdy86lh4sk0" path="res://cenas/checkpoint.tscn" id="9_0gy2o"]
+[ext_resource type="PackedScene" uid="uid://6523ou34ncko" path="res://cenas/zona_morte.tscn" id="10_8rolb"]
+[ext_resource type="PackedScene" uid="uid://b05yh1isphpl4" path="res://cenas/menu_pausa.tscn" id="11_nvv58"]
+[ext_resource type="PackedScene" uid="uid://dsk5vke5xn4bx" path="res://cenas/nuvem.tscn" id="17_xqu6a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fgtm"]
+size = Vector2(3431, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ru4u6"]
+size = Vector2(10, 1001)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnohs"]
+size = Vector2(367, 977.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugfv0"]
+size = Vector2(676.5, 31)
+
+[node name="floresta" type="Node2D" unique_id=1716129595]
+position = Vector2(42, 549)
+script = ExtResource("1_sluse")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=160657108]
+offset_left = -42.0
+offset_top = -589.0
+offset_right = 6891.0
+offset_bottom = 404.0
+color = Color(0.36265907, 0.76768094, 0.90338916, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=359046237]
+offset_left = 4651.0
+offset_top = -585.0
+offset_right = 4866.0
+offset_bottom = 417.0
+color = Color(0.32915837, 0.3291584, 0.3291584, 1)
+metadata/_edit_lock_ = true
+
+[node name="Portal" parent="." unique_id=1230689211 instance=ExtResource("2_wnohs")]
+position = Vector2(4607, 326)
+caminho_proxima_fase = "res://cenas/fases/laboratorio.tscn"
+
+[node name="Bordas" type="StaticBody2D" parent="." unique_id=232016655]
+collision_layer = 2
+
+[node name="Chao" type="CollisionShape2D" parent="Bordas" unique_id=316338645]
+position = Vector2(1673.5, 426)
+shape = SubResource("RectangleShape2D_7fgtm")
+
+[node name="Chao2" type="CollisionShape2D" parent="Bordas" unique_id=1997067341]
+position = Vector2(5809, 425)
+shape = SubResource("RectangleShape2D_7fgtm")
+
+[node name="inicio" type="CollisionShape2D" parent="Bordas" unique_id=1617583281]
+position = Vector2(-47, -96.5)
+shape = SubResource("RectangleShape2D_ru4u6")
+
+[node name="fim" type="CollisionShape2D" parent="Bordas" unique_id=236680970]
+position = Vector2(4907, -85)
+shape = SubResource("RectangleShape2D_wnohs")
+
+[node name="teto" type="CollisionShape2D" parent="Bordas" unique_id=1834963190]
+position = Vector2(296, -604)
+shape = SubResource("RectangleShape2D_ugfv0")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2053396645]
+position = Vector2(657, 19)
+limit_left = -8
+limit_top = 2
+limit_right = 4724
+limit_bottom = 954
+limit_smoothed = true
+
+[node name="cenario atras" type="Node" parent="." unique_id=47649895]
+
+[node name="Moita" type="Sprite2D" parent="cenario atras" unique_id=382425387]
+position = Vector2(1240, 921)
+scale = Vector2(0.3, 0.27942237)
+texture = ExtResource("4_7fgtm")
+
+[node name="Moita3" type="Sprite2D" parent="cenario atras" unique_id=407913789]
+position = Vector2(4311, 909)
+scale = Vector2(0.5432146, 0.5045124)
+texture = ExtResource("4_7fgtm")
+
+[node name="arvore2" type="Sprite2D" parent="cenario atras" unique_id=81077307]
+position = Vector2(6, 598)
+scale = Vector2(0.95171756, 1.0773116)
+texture = ExtResource("4_wnohs")
+
+[node name="arvore" type="Sprite2D" parent="cenario atras" unique_id=1074439979]
+position = Vector2(1341.5, 616)
+scale = Vector2(0.9755601, 1.0379362)
+texture = ExtResource("4_wnohs")
+
+[node name="personagens" type="Node" parent="." unique_id=188357168]
+
+[node name="Coelho" parent="personagens" unique_id=204825905 instance=ExtResource("2_ru4u6")]
+position = Vector2(424, 616)
+collision_mask = 2
+
+[node name="cenario frente" type="Node" parent="." unique_id=1964374392]
+
+[node name="Moita2" type="Sprite2D" parent="cenario frente" unique_id=1441156936]
+light_mask = 3
+z_as_relative = false
+position = Vector2(29, 893)
+scale = Vector2(0.5285714, 0.52048737)
+texture = ExtResource("4_7fgtm")
+flip_h = true
+
+[node name="Pedra" type="Sprite2D" parent="cenario frente" unique_id=1405274030]
+position = Vector2(2222.2996, 883.9254)
+scale = Vector2(0.23099078, 0.25)
+texture = ExtResource("6_ugfv0")
+
+[node name="Pedra2" type="Sprite2D" parent="cenario frente" unique_id=1306813788]
+position = Vector2(2438.1116, 733.9255)
+scale = Vector2(0.5407067, 0.7954082)
+texture = ExtResource("6_ugfv0")
+
+[node name="Moita" type="Sprite2D" parent="cenario frente" unique_id=874663394]
+position = Vector2(1866.2499, 919.5)
+scale = Vector2(0.3099997, 0.35018066)
+texture = ExtResource("4_7fgtm")
+
+[node name="ColorRect2" type="ColorRect" parent="cenario frente" unique_id=865541602]
+offset_left = 2581.9998
+offset_top = 606.0
+offset_right = 2589.9998
+offset_bottom = 615.0
+color = Color(0.36078432, 0.76862746, 0.9019608, 1)
+metadata/_edit_lock_ = true
+
+[node name="Colisões" type="StaticBody2D" parent="." unique_id=1964075339]
+position = Vector2(3, 9)
+collision_layer = 2
+
+[node name="Pedra 2" type="CollisionPolygon2D" parent="Colisões" unique_id=1263360851]
+position = Vector2(2396.1116, 184.92548)
+scale = Vector2(0.5407067, 0.7954082)
+polygon = PackedVector2Array(29.591797, -228.81335, 2.5, -228.9, -30.5, -230, -35, -230, -46.234863, -227.55615, -55.481934, -227.55615, -66.57861, -227.55615, -77.674805, -228.81335, -94.5, -226.8, -154.8, -219, -158, -219, -171, -212, -173.3, -212, -183.3, -202, -184.4, -202, -217.4, -164, -218.9, -164, -220.08105, -147.0943, -218.23193, -148.3515, -216.38232, -132.00769, -218.23193, -128.23602, -221.93066, -121.94995, -221.93066, -119.43555, -231.17773, -114.40668, -242.27441, -109.37781, -262.61816, -93.034, -265, -86, -271.86523, -69.14691, -277.41357, -40.230896, -282.5, 11, -282.5, 30.600006, -286.5, 49.799988, -286.5, 53.600006, -292.5, 67.600006, -292.5, 70.399994, -317.6, 112, -319.1, 112, -325.5, 137.9, -325.5, 195.9, -314.5, 232.20001, -314.5, 238.40002, -299.5, 276.40002, -299.5, 277, 321.40002, 277, 325.5, 245.5, 325.5, 173.29999, 323.5, 159.70001, 323.5, 154.70001, 311.5, 114.70001, 311.5, 111.5, 288.5, 70.5, 288.5, 67.29999, 259.5, 30, 259.5, 10.5, 252.5, -2.600006, 252.5, -4.899994, 240.29999, -16, 241.5, -19.700012, 241.5, -33.600006, 238.5, -38.600006, 238.5, -40.899994, 205.29999, -70, 203.59998, -70, 197.59998, -79, 192.5, -102.399994, 192.5, -105.600006, 167.6, -147, 167.5, -149.4, 180.5, -167.4, 180.5, -177.5, 165.70001, -205, 157.20264, -225.04169)
+
+[node name="Pedra" type="CollisionPolygon2D" parent="Colisões" unique_id=1302448]
+position = Vector2(2180.3, 335.9254)
+scale = Vector2(0.23099078, 0.25)
+polygon = PackedVector2Array(23.5, -224, 20.200012, -221.6, 2.5, -227.5, 2.5, -228.9, -30.5, -230, -35, -230, -74.40918, -227.99976, -83.06738, -227.99976, -96.05469, -227.99976, -154.8, -219, -158, -219, -171, -212, -173.3, -212, -183.3, -202, -184.4, -202, -217.4, -164, -218.9, -164, -224.9, -147, -226.7, -147, -224.5, -122.8, -224.5, -120.3, -246, -110, -248.4, -110, -256.4, -101, -257.9, -101, -263.9, -86, -265, -86, -279, -40, -280.4, -40, -282.5, 11, -282.5, 30.600006, -286.5, 49.799988, -286.5, 53.600006, -292.5, 67.600006, -292.5, 70.399994, -317.6, 112, -319.1, 112, -325.5, 137.9, -325.5, 195.9, -314.5, 232.20001, -314.5, 238.40002, -299.5, 276.40002, -299.5, 277, 321.40002, 277, 325.5, 245.5, 325.5, 173.29999, 323.5, 159.70001, 323.5, 154.70001, 311.5, 114.70001, 311.5, 111.5, 288.5, 70.5, 288.5, 67.29999, 259.5, 30, 259.5, 10.5, 252.5, -2.600006, 252.5, -4.899994, 240.29999, -16, 241.5, -19.700012, 241.5, -33.600006, 238.5, -38.600006, 238.5, -40.899994, 205.29999, -70, 203.59998, -70, 197.59998, -79, 192.5, -102.399994, 192.5, -105.600006, 167.6, -147, 167.5, -149.4, 180.5, -167.4, 180.5, -177.5, 185.3418, -199.99976, 185.3418, -207.99976, 181.0127, -223.99976)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Colisões" unique_id=1372746241]
+position = Vector2(2180.2996, 332.9254)
+scale = Vector2(0.23099078, 0.25)
+polygon = PackedVector2Array(271.5, -161, 271.5, -158.3, 269.5, -157.2, 269.5, -151, 280.5, -151, 280.5, -157.4)
+
+[node name="ComandosJogador" type="Node" parent="." unique_id=1679254832]
+
+[node name="comando pular" parent="ComandosJogador" unique_id=1712714634 instance=ExtResource("7_50ojs")]
+position = Vector2(2222.112, 746.9255)
+texto_da_interacao = "Use [ CTRL ] para pular mais alto"
+
+[node name="comando correr" parent="ComandosJogador" unique_id=1391974503 instance=ExtResource("7_50ojs")]
+position = Vector2(3198, 867)
+texto_da_interacao = "Use [ Shift ] para correr"
+
+[node name="ChaoCaindo" type="Node" parent="." unique_id=1822411563]
+
+[node name="ChaoCaindo" parent="ChaoCaindo" unique_id=536961924 instance=ExtResource("8_n6fpf")]
+position = Vector2(3502, 909.99994)
+scale = Vector2(5.5151553, 4.7224374)
+
+[node name="ChaoCaindo2" parent="ChaoCaindo" unique_id=1844498963 instance=ExtResource("8_n6fpf")]
+position = Vector2(3643, 909.99994)
+scale = Vector2(5.5151553, 4.7224374)
+
+[node name="ChaoCaindo3" parent="ChaoCaindo" unique_id=1275159079 instance=ExtResource("8_n6fpf")]
+position = Vector2(3784, 909.99994)
+scale = Vector2(5.5151553, 4.7224374)
+
+[node name="ChaoCaindo4" parent="ChaoCaindo" unique_id=1965052111 instance=ExtResource("8_n6fpf")]
+position = Vector2(3924, 909.99994)
+scale = Vector2(5.5151553, 4.7224374)
+
+[node name="ChaoCaindo5" parent="ChaoCaindo" unique_id=880074521 instance=ExtResource("8_n6fpf")]
+position = Vector2(4064, 909.99994)
+scale = Vector2(5.5151553, 4.7224374)
+
+[node name="Checkpoint" parent="." unique_id=1137813904 instance=ExtResource("9_0gy2o")]
+position = Vector2(2378, -68)
+scale = Vector2(1.186726, -0.5)
+
+[node name="ZonaMorte" parent="." unique_id=1143527099 instance=ExtResource("10_8rolb")]
+position = Vector2(3736, 415)
+scale = Vector2(1.3927815, -0.5)
+
+[node name="Label" type="Label" parent="." unique_id=785471329]
+offset_left = 4411.0
+offset_top = 93.0
+offset_right = 4570.0
+offset_bottom = 142.0
+text = "Para o laboratório
+>> "
+horizontal_alignment = 1
+
+[node name="MenuPausa" parent="." unique_id=1282330759 instance=ExtResource("11_nvv58")]
+
+[node name="nuvens" type="Node" parent="." unique_id=1353482004]
+
+[node name="Nuvem" parent="nuvens" unique_id=1802820397 instance=ExtResource("17_xqu6a")]
+position = Vector2(269, 329)
+
+[node name="Nuvem2" parent="nuvens" unique_id=1253951594 instance=ExtResource("17_xqu6a")]
+position = Vector2(873, 336)
+
+[node name="Nuvem3" parent="nuvens" unique_id=1971468825 instance=ExtResource("17_xqu6a")]
+position = Vector2(1658, 312)
+
+[node name="Nuvem4" parent="nuvens" unique_id=206146996 instance=ExtResource("17_xqu6a")]
+position = Vector2(2230, 282)
+
+[node name="Nuvem5" parent="nuvens" unique_id=936775145 instance=ExtResource("17_xqu6a")]
+position = Vector2(3086, 293)
+
+[node name="Nuvem6" parent="nuvens" unique_id=1819161746 instance=ExtResource("17_xqu6a")]
+position = Vector2(3649, 295)

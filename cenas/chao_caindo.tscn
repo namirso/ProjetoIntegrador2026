@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cwdn2r6vjjgss"]
+
+[ext_resource type="Script" uid="uid://cn40lpjpsdlom" path="res://scripts/chao_caindo.gd" id="1_rnm5k"]
+[ext_resource type="Texture2D" uid="uid://bwgfma5ey6cvj" path="res://assets/cenario/floresta/bloco.png" id="2_k755n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80171"]
+size = Vector2(26, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivq11"]
+size = Vector2(11.344334, 20)
+
+[node name="ChaoCaindo" type="RigidBody2D" unique_id=536961924]
+scale = Vector2(2.3600025, 1.9999999)
+collision_layer = 2
+lock_rotation = true
+freeze = true
+script = ExtResource("1_rnm5k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=395840849]
+scale = Vector2(0.0455707, 0.047066014)
+texture = ExtResource("2_k755n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088167327]
+light_mask = 2
+shape = SubResource("RectangleShape2D_80171")
+
+[node name="Gatilho" type="Area2D" parent="." unique_id=1742331151]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gatilho" unique_id=126243047]
+scale = Vector2(1.0018272, 1)
+shape = SubResource("RectangleShape2D_ivq11")
+metadata/_edit_group_ = true

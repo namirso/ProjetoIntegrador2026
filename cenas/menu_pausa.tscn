@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b05yh1isphpl4"]
+
+[ext_resource type="Script" uid="uid://0oeqh11goxrv" path="res://scripts/menu_pausa.gd" id="1_yi4s2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bnns3"]
+font_size = 25
+
+[node name="MenuPausa" type="CanvasLayer" unique_id=1282330759]
+script = ExtResource("1_yi4s2")
+
+[node name="Panel" type="Panel" parent="." unique_id=1447084829]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel" unique_id=1750684219]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -104.0
+offset_right = 105.0
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pause"
+label_settings = SubResource("LabelSettings_bnns3")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1078244207]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -58.5
+offset_right = 108.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="continuar" type="Button" parent="Panel/VBoxContainer" unique_id=665387595]
+layout_mode = 2
+text = "Continuar"
+
+[node name="voltarMenu" type="Button" parent="Panel/VBoxContainer" unique_id=1356642979]
+layout_mode = 2
+text = "Voltar ao Menu Principal"

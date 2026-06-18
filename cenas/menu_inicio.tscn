@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://bm0gcxqpbvef1"]
+
+[ext_resource type="Script" uid="uid://icuy1il0sxvq" path="res://scripts/menu_inicio.gd" id="1_gix31"]
+[ext_resource type="Texture2D" uid="uid://t8udi1gadlhq" path="res://assets/personagens/coelho/000.png" id="2_yybqt"]
+[ext_resource type="Texture2D" uid="uid://b8ylkkc5hwvx0" path="res://assets/personagens/coelho/001.png" id="3_5u15t"]
+[ext_resource type="Texture2D" uid="uid://dp75ey8yxafeh" path="res://assets/personagens/coelho/002.png" id="4_4drd0"]
+[ext_resource type="Texture2D" uid="uid://buaunkkfyd3v5" path="res://assets/personagens/coelho/003.png" id="5_6kjp6"]
+[ext_resource type="Texture2D" uid="uid://bgheotma7wgh6" path="res://assets/personagens/coelho/004.png" id="6_1x4rh"]
+[ext_resource type="Texture2D" uid="uid://bgmeu2m146htn" path="res://assets/personagens/coelho/005.png" id="7_th0gl"]
+[ext_resource type="Texture2D" uid="uid://cp7e7oignby5f" path="res://assets/personagens/coelho/006.png" id="8_y6m4c"]
+[ext_resource type="Texture2D" uid="uid://cld8a3sn7bqwy" path="res://assets/personagens/coelho/007.png" id="9_e4j24"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gmwve"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yybqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5u15t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4drd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6kjp6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1x4rh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_th0gl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_y6m4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_e4j24")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n3wrt"]
+font_size = 87
+
+[node name="MenuInicio" type="Control" unique_id=1070463621]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gix31")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=17950176]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02938054, 0.2105115, 9.62615e-07, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=470932027]
+position = Vector2(874, 356)
+scale = Vector2(0.44515622, 0.4229167)
+sprite_frames = SubResource("SpriteFrames_gmwve")
+animation = &"idle"
+frame_progress = 0.21616706
+
+[node name="Label" type="Label" parent="." unique_id=849595421]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -617.0
+offset_top = -293.0
+offset_right = -314.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "LAB 
+change"
+label_settings = SubResource("LabelSettings_n3wrt")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1367547104]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -549.0
+offset_top = 19.0
+offset_right = -398.5
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Iniciar" type="Button" parent="VBoxContainer" unique_id=257684386]
+layout_mode = 2
+text = "Iniciar"
+
+[node name="Sair" type="Button" parent="VBoxContainer" unique_id=1001365527]
+layout_mode = 2
+text = "Sair"
+
+[connection signal="pressed" from="VBoxContainer/Iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Sair" to="." method="_on_sair_pressed"]

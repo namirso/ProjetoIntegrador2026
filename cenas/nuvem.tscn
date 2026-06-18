@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dsk5vke5xn4bx"]
+
+[ext_resource type="Script" uid="uid://bqnjpf8xjn3i7" path="res://scripts/nuvem.gd" id="1_7ik6k"]
+[ext_resource type="Texture2D" uid="uid://bokw6w320df6t" path="res://assets/cenario/floresta/nuvem/Sprite-0001.png" id="1_e7cei"]
+[ext_resource type="Texture2D" uid="uid://bgi5iu540abom" path="res://assets/cenario/floresta/nuvem/Sprite-0002.png" id="2_7ik6k"]
+[ext_resource type="Texture2D" uid="uid://c4du8dl7ywvnc" path="res://assets/cenario/floresta/nuvem/Sprite-0003.png" id="3_l3ywj"]
+[ext_resource type="Texture2D" uid="uid://sukcg8aopit4" path="res://assets/cenario/floresta/nuvem/Sprite-0004.png" id="4_oc5ro"]
+[ext_resource type="Texture2D" uid="uid://bgd01r6ql6dpu" path="res://assets/cenario/floresta/nuvem/Sprite-0005.png" id="5_2i6xj"]
+[ext_resource type="Texture2D" uid="uid://c4la4jf0s4057" path="res://assets/cenario/floresta/nuvem/Sprite-0006.png" id="6_njj7x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xdoo0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e7cei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7ik6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l3ywj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oc5ro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2i6xj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_njj7x")
+}],
+"loop": true,
+"name": &"nuvem",
+"speed": 2.0
+}]
+
+[node name="Nuvem" type="Node2D" unique_id=1802820397]
+script = ExtResource("1_7ik6k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=880327849]
+sprite_frames = SubResource("SpriteFrames_xdoo0")
+animation = &"nuvem"
+frame_progress = 0.7199815

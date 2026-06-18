@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b1qa7xyuj46dp"]
+
+[ext_resource type="Script" uid="uid://lxqf7r73da6k" path="res://scripts/area_interacao.gd" id="1_qv1cq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_na2ct"]
+size = Vector2(56, 37)
+
+[node name="AreaInteracao" type="Area2D" unique_id=1712714634]
+script = ExtResource("1_qv1cq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=664631587]
+shape = SubResource("RectangleShape2D_na2ct")
+
+[node name="Label" type="Label" parent="." unique_id=1702254071]
+z_index = 50
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -163.0
+offset_right = 65.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "[ E ]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

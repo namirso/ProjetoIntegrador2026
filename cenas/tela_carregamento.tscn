@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cywmf5ypbeor1"]
+
+[ext_resource type="Script" uid="uid://ddpt0617i3wo0" path="res://scripts/tela_carregamento.gd" id="1_21wf7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hp3g"]
+bg_color = Color(0.42157912, 0.8356399, 0.28251785, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_21wf7"]
+font_size = 40
+outline_size = 11
+outline_color = Color(0.25923848, 0.44740307, 0.23928756, 1)
+shadow_size = 16
+shadow_color = Color(9.62615e-08, 0.45914793, 0.16159227, 0)
+
+[node name="TelaCarregamento" type="Control" unique_id=1139446142]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_21wf7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=770987313]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=2066596705]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 140.0
+offset_top = -2.0
+offset_right = -122.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9840782, 0.82938313, 0.58739716, 1)
+theme_override_colors/font_outline_color = Color(0.22607413, 0.6398344, 0.24166694, 1)
+theme_override_styles/fill = SubResource("StyleBoxFlat_2hp3g")
+show_percentage = false
+
+[node name="Label" type="Label" parent="." unique_id=1590774243]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -141.5
+offset_bottom = -86.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "LAB CHANGE"
+label_settings = SubResource("LabelSettings_21wf7")
+horizontal_alignment = 1
+vertical_alignment = 1
