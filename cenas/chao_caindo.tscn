@@ -7,7 +7,7 @@
 size = Vector2(26, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivq11"]
-size = Vector2(11.344334, 20)
+size = Vector2(19.455956, 15.500002)
 
 [node name="ChaoCaindo" type="RigidBody2D" unique_id=536961924]
 scale = Vector2(2.3600025, 1.9999999)
@@ -17,17 +17,19 @@ freeze = true
 script = ExtResource("1_rnm5k")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=395840849]
-scale = Vector2(0.0455707, 0.047066014)
+scale = Vector2(0.0455707, 0.038594123)
 texture = ExtResource("2_k755n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088167327]
 light_mask = 2
+scale = Vector2(1, 0.8199998)
 shape = SubResource("RectangleShape2D_80171")
 
 [node name="Gatilho" type="Area2D" parent="." unique_id=1742331151]
 collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gatilho" unique_id=126243047]
+position = Vector2(-0.42372817, -0.24999963)
 scale = Vector2(1.0018272, 1)
 shape = SubResource("RectangleShape2D_ivq11")
 metadata/_edit_group_ = true

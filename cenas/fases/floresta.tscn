@@ -10,11 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://cwdn2r6vjjgss" path="res://cenas/chao_caindo.tscn" id="8_n6fpf"]
 [ext_resource type="PackedScene" uid="uid://c4gdy86lh4sk0" path="res://cenas/checkpoint.tscn" id="9_0gy2o"]
 [ext_resource type="PackedScene" uid="uid://6523ou34ncko" path="res://cenas/zona_morte.tscn" id="10_8rolb"]
-[ext_resource type="PackedScene" uid="uid://b05yh1isphpl4" path="res://cenas/menu_pausa.tscn" id="11_nvv58"]
+[ext_resource type="PackedScene" uid="uid://d2hhm663btaqi" path="res://cenas/texto_historia.tscn" id="12_nvv58"]
+[ext_resource type="PackedScene" uid="uid://7bapt1mt0nlg" path="res://cenas/controles_inicio.tscn" id="13_3xbke"]
 [ext_resource type="PackedScene" uid="uid://dsk5vke5xn4bx" path="res://cenas/nuvem.tscn" id="17_xqu6a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7fgtm"]
-size = Vector2(3431, 45)
+size = Vector2(3424.25, 76.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ru4u6"]
 size = Vector2(10, 1001)
@@ -25,39 +26,84 @@ size = Vector2(367, 977.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ugfv0"]
 size = Vector2(676.5, 31)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rolb"]
+size = Vector2(758, 91)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvv58"]
+size = Vector2(1914.5, 89.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8rolb"]
+font_size = 30
+
 [node name="floresta" type="Node2D" unique_id=1716129595]
 position = Vector2(42, 549)
 script = ExtResource("1_sluse")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=160657108]
-offset_left = -42.0
-offset_top = -589.0
-offset_right = 6891.0
-offset_bottom = 404.0
+[node name="fundo" type="ColorRect" parent="." unique_id=160657108]
+offset_left = -43.0
+offset_top = -584.0
+offset_right = 6890.0
+offset_bottom = 480.0
 color = Color(0.36265907, 0.76768094, 0.90338916, 1)
-metadata/_edit_lock_ = true
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=359046237]
-offset_left = 4651.0
+[node name="lab" type="ColorRect" parent="." unique_id=359046237]
+z_index = 27
+offset_left = 6790.0
 offset_top = -585.0
-offset_right = 4866.0
+offset_right = 7005.0
 offset_bottom = 417.0
 color = Color(0.32915837, 0.3291584, 0.3291584, 1)
-metadata/_edit_lock_ = true
+
+[node name="cenario atras" type="Node" parent="." unique_id=47649895]
+
+[node name="Moita" type="Sprite2D" parent="cenario atras" unique_id=874663394]
+position = Vector2(1874, 887)
+scale = Vector2(0.3099997, 0.35018066)
+texture = ExtResource("4_7fgtm")
+
+[node name="Moita3" type="Sprite2D" parent="cenario atras" unique_id=407913789]
+z_index = 4
+position = Vector2(4360, 890.99994)
+scale = Vector2(0.3687501, 0.36055928)
+texture = ExtResource("4_7fgtm")
+
+[node name="arvore2" type="Sprite2D" parent="cenario atras" unique_id=81077307]
+position = Vector2(27.646667, 585.9742)
+scale = Vector2(0.95171756, 1.0773116)
+texture = ExtResource("4_wnohs")
+
+[node name="chao2" type="ColorRect" parent="." unique_id=9587572]
+z_index = 6
+offset_left = 4089.0
+offset_top = 379.0
+offset_right = 4857.0
+offset_bottom = 469.0
+color = Color(6.256998e-07, 0.5267238, 0.0062030912, 1)
+
+[node name="chao3" type="ColorRect" parent="." unique_id=1183626187]
+z_index = 6
+offset_left = 5025.0
+offset_top = 378.0
+offset_right = 7702.0
+offset_bottom = 513.0
+color = Color(6.256998e-07, 0.5267238, 0.0062030912, 1)
+
+[node name="chao" type="ColorRect" parent="." unique_id=790607072]
+offset_left = -50.0
+offset_top = 379.0
+offset_right = 3382.0
+offset_bottom = 469.0
+color = Color(6.256998e-07, 0.5267238, 0.0062030912, 1)
 
 [node name="Portal" parent="." unique_id=1230689211 instance=ExtResource("2_wnohs")]
-position = Vector2(4607, 326)
+position = Vector2(6816, 293)
 caminho_proxima_fase = "res://cenas/fases/laboratorio.tscn"
 
 [node name="Bordas" type="StaticBody2D" parent="." unique_id=232016655]
 collision_layer = 2
 
 [node name="Chao" type="CollisionShape2D" parent="Bordas" unique_id=316338645]
-position = Vector2(1673.5, 426)
-shape = SubResource("RectangleShape2D_7fgtm")
-
-[node name="Chao2" type="CollisionShape2D" parent="Bordas" unique_id=1997067341]
-position = Vector2(5809, 425)
+position = Vector2(1668.875, 419.375)
 shape = SubResource("RectangleShape2D_7fgtm")
 
 [node name="inicio" type="CollisionShape2D" parent="Bordas" unique_id=1617583281]
@@ -65,79 +111,87 @@ position = Vector2(-47, -96.5)
 shape = SubResource("RectangleShape2D_ru4u6")
 
 [node name="fim" type="CollisionShape2D" parent="Bordas" unique_id=236680970]
-position = Vector2(4907, -85)
+position = Vector2(7061, -43)
 shape = SubResource("RectangleShape2D_wnohs")
 
 [node name="teto" type="CollisionShape2D" parent="Bordas" unique_id=1834963190]
 position = Vector2(296, -604)
 shape = SubResource("RectangleShape2D_ugfv0")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bordas" unique_id=1559111166]
+z_index = 42
+position = Vector2(4472, 424.5)
+shape = SubResource("RectangleShape2D_8rolb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bordas" unique_id=2134155859]
+z_index = 46
+position = Vector2(5982.75, 423.25)
+shape = SubResource("RectangleShape2D_nvv58")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2053396645]
 position = Vector2(657, 19)
 limit_left = -8
 limit_top = 2
-limit_right = 4724
+limit_right = 6900
 limit_bottom = 954
 limit_smoothed = true
-
-[node name="cenario atras" type="Node" parent="." unique_id=47649895]
-
-[node name="Moita" type="Sprite2D" parent="cenario atras" unique_id=382425387]
-position = Vector2(1240, 921)
-scale = Vector2(0.3, 0.27942237)
-texture = ExtResource("4_7fgtm")
-
-[node name="Moita3" type="Sprite2D" parent="cenario atras" unique_id=407913789]
-position = Vector2(4311, 909)
-scale = Vector2(0.5432146, 0.5045124)
-texture = ExtResource("4_7fgtm")
-
-[node name="arvore2" type="Sprite2D" parent="cenario atras" unique_id=81077307]
-position = Vector2(6, 598)
-scale = Vector2(0.95171756, 1.0773116)
-texture = ExtResource("4_wnohs")
-
-[node name="arvore" type="Sprite2D" parent="cenario atras" unique_id=1074439979]
-position = Vector2(1341.5, 616)
-scale = Vector2(0.9755601, 1.0379362)
-texture = ExtResource("4_wnohs")
 
 [node name="personagens" type="Node" parent="." unique_id=188357168]
 
 [node name="Coelho" parent="personagens" unique_id=204825905 instance=ExtResource("2_ru4u6")]
-position = Vector2(424, 616)
+position = Vector2(112, 734)
 collision_mask = 2
 
 [node name="cenario frente" type="Node" parent="." unique_id=1964374392]
 
+[node name="Moita3" type="Sprite2D" parent="cenario frente" unique_id=382425387]
+position = Vector2(1240, 921)
+scale = Vector2(0.3, 0.27942237)
+texture = ExtResource("4_7fgtm")
+
+[node name="arvore" type="Sprite2D" parent="cenario frente" unique_id=1074439979]
+position = Vector2(1341.5, 616)
+scale = Vector2(0.9755601, 1.0379362)
+texture = ExtResource("4_wnohs")
+
 [node name="Moita2" type="Sprite2D" parent="cenario frente" unique_id=1441156936]
 light_mask = 3
 z_as_relative = false
-position = Vector2(29, 893)
+position = Vector2(50.646667, 880.9742)
 scale = Vector2(0.5285714, 0.52048737)
 texture = ExtResource("4_7fgtm")
 flip_h = true
 
 [node name="Pedra" type="Sprite2D" parent="cenario frente" unique_id=1405274030]
-position = Vector2(2222.2996, 883.9254)
+position = Vector2(2220.2996, 860.9254)
 scale = Vector2(0.23099078, 0.25)
 texture = ExtResource("6_ugfv0")
 
-[node name="Pedra2" type="Sprite2D" parent="cenario frente" unique_id=1306813788]
-position = Vector2(2438.1116, 733.9255)
+[node name="Pedra3" type="Sprite2D" parent="cenario frente" unique_id=1906186742]
+position = Vector2(4818.2993, 860.525)
+scale = Vector2(0.23099078, 0.25)
+texture = ExtResource("6_ugfv0")
+
+[node name="PedraGrande" type="Sprite2D" parent="cenario frente" unique_id=1306813788]
+position = Vector2(2436.1116, 710.9255)
 scale = Vector2(0.5407067, 0.7954082)
 texture = ExtResource("6_ugfv0")
 
-[node name="Moita" type="Sprite2D" parent="cenario frente" unique_id=874663394]
-position = Vector2(1866.2499, 919.5)
-scale = Vector2(0.3099997, 0.35018066)
-texture = ExtResource("4_7fgtm")
+[node name="PedraGrande2" type="Sprite2D" parent="cenario frente" unique_id=1994753035]
+position = Vector2(5345.6, 710.9255)
+scale = Vector2(0.5407067, 0.7954082)
+texture = ExtResource("6_ugfv0")
+
+[node name="Pedra4" type="Sprite2D" parent="cenario frente" unique_id=636793031]
+position = Vector2(5137.2993, 859.525)
+scale = Vector2(0.23099078, 0.25)
+texture = ExtResource("6_ugfv0")
 
 [node name="ColorRect2" type="ColorRect" parent="cenario frente" unique_id=865541602]
 offset_left = 2581.9998
-offset_top = 606.0
+offset_top = 584.0
 offset_right = 2589.9998
-offset_bottom = 615.0
+offset_bottom = 593.0
 color = Color(0.36078432, 0.76862746, 0.9019608, 1)
 metadata/_edit_lock_ = true
 
@@ -145,88 +199,136 @@ metadata/_edit_lock_ = true
 position = Vector2(3, 9)
 collision_layer = 2
 
-[node name="Pedra 2" type="CollisionPolygon2D" parent="Colisões" unique_id=1263360851]
-position = Vector2(2396.1116, 184.92548)
+[node name="PedraGrande" type="CollisionPolygon2D" parent="Colisões" unique_id=1263360851]
+position = Vector2(2394.1116, 161.92548)
+scale = Vector2(0.5407067, 0.7954082)
+polygon = PackedVector2Array(29.591797, -228.81335, 2.5, -228.9, -30.5, -230, -35, -230, -46.234863, -227.55615, -55.481934, -227.55615, -66.57861, -227.55615, -77.674805, -228.81335, -94.5, -226.8, -154.8, -219, -158, -219, -171, -212, -173.3, -212, -183.3, -202, -184.4, -202, -217.4, -164, -218.9, -164, -220.08105, -147.0943, -218.23193, -148.3515, -216.38232, -132.00769, -218.23193, -128.23602, -221.93066, -121.94995, -221.93066, -119.43555, -231.17773, -114.40668, -242.27441, -109.37781, -262.61816, -93.034, -265, -86, -271.86523, -69.14691, -277.41357, -40.230896, -282.5, 11, -282.5, 30.600006, -286.5, 49.799988, -286.5, 53.600006, -292.5, 67.600006, -292.5, 70.399994, -317.6, 112, -319.1, 112, -325.5, 137.9, -325.5, 195.9, -314.5, 232.20001, -314.5, 238.40002, -299.5, 276.40002, -299.5, 277, 321.40002, 277, 325.5, 245.5, 325.5, 173.29999, 323.5, 159.70001, 323.5, 154.70001, 311.5, 114.70001, 311.5, 111.5, 288.5, 70.5, 288.5, 67.29999, 259.5, 30, 259.5, 10.5, 252.5, -2.600006, 252.5, -4.899994, 240.29999, -16, 241.5, -19.700012, 241.5, -33.600006, 238.5, -38.600006, 238.5, -40.899994, 205.29999, -70, 203.59998, -70, 197.59998, -79, 192.5, -102.399994, 192.5, -105.600006, 167.6, -147, 167.5, -149.4, 180.5, -167.4, 180.5, -177.5, 165.70001, -205, 157.20264, -225.04169)
+
+[node name="PedraGrande2" type="CollisionPolygon2D" parent="Colisões" unique_id=1824442691]
+position = Vector2(5303.6, 161.92548)
 scale = Vector2(0.5407067, 0.7954082)
 polygon = PackedVector2Array(29.591797, -228.81335, 2.5, -228.9, -30.5, -230, -35, -230, -46.234863, -227.55615, -55.481934, -227.55615, -66.57861, -227.55615, -77.674805, -228.81335, -94.5, -226.8, -154.8, -219, -158, -219, -171, -212, -173.3, -212, -183.3, -202, -184.4, -202, -217.4, -164, -218.9, -164, -220.08105, -147.0943, -218.23193, -148.3515, -216.38232, -132.00769, -218.23193, -128.23602, -221.93066, -121.94995, -221.93066, -119.43555, -231.17773, -114.40668, -242.27441, -109.37781, -262.61816, -93.034, -265, -86, -271.86523, -69.14691, -277.41357, -40.230896, -282.5, 11, -282.5, 30.600006, -286.5, 49.799988, -286.5, 53.600006, -292.5, 67.600006, -292.5, 70.399994, -317.6, 112, -319.1, 112, -325.5, 137.9, -325.5, 195.9, -314.5, 232.20001, -314.5, 238.40002, -299.5, 276.40002, -299.5, 277, 321.40002, 277, 325.5, 245.5, 325.5, 173.29999, 323.5, 159.70001, 323.5, 154.70001, 311.5, 114.70001, 311.5, 111.5, 288.5, 70.5, 288.5, 67.29999, 259.5, 30, 259.5, 10.5, 252.5, -2.600006, 252.5, -4.899994, 240.29999, -16, 241.5, -19.700012, 241.5, -33.600006, 238.5, -38.600006, 238.5, -40.899994, 205.29999, -70, 203.59998, -70, 197.59998, -79, 192.5, -102.399994, 192.5, -105.600006, 167.6, -147, 167.5, -149.4, 180.5, -167.4, 180.5, -177.5, 165.70001, -205, 157.20264, -225.04169)
 
 [node name="Pedra" type="CollisionPolygon2D" parent="Colisões" unique_id=1302448]
-position = Vector2(2180.3, 335.9254)
+position = Vector2(2178.3, 312.9254)
 scale = Vector2(0.23099078, 0.25)
 polygon = PackedVector2Array(23.5, -224, 20.200012, -221.6, 2.5, -227.5, 2.5, -228.9, -30.5, -230, -35, -230, -74.40918, -227.99976, -83.06738, -227.99976, -96.05469, -227.99976, -154.8, -219, -158, -219, -171, -212, -173.3, -212, -183.3, -202, -184.4, -202, -217.4, -164, -218.9, -164, -224.9, -147, -226.7, -147, -224.5, -122.8, -224.5, -120.3, -246, -110, -248.4, -110, -256.4, -101, -257.9, -101, -263.9, -86, -265, -86, -279, -40, -280.4, -40, -282.5, 11, -282.5, 30.600006, -286.5, 49.799988, -286.5, 53.600006, -292.5, 67.600006, -292.5, 70.399994, -317.6, 112, -319.1, 112, -325.5, 137.9, -325.5, 195.9, -314.5, 232.20001, -314.5, 238.40002, -299.5, 276.40002, -299.5, 277, 321.40002, 277, 325.5, 245.5, 325.5, 173.29999, 323.5, 159.70001, 323.5, 154.70001, 311.5, 114.70001, 311.5, 111.5, 288.5, 70.5, 288.5, 67.29999, 259.5, 30, 259.5, 10.5, 252.5, -2.600006, 252.5, -4.899994, 240.29999, -16, 241.5, -19.700012, 241.5, -33.600006, 238.5, -38.600006, 238.5, -40.899994, 205.29999, -70, 203.59998, -70, 197.59998, -79, 192.5, -102.399994, 192.5, -105.600006, 167.6, -147, 167.5, -149.4, 180.5, -167.4, 180.5, -177.5, 185.3418, -199.99976, 185.3418, -207.99976, 181.0127, -223.99976)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Colisões" unique_id=1372746241]
-position = Vector2(2180.2996, 332.9254)
+[node name="Pedra2" type="CollisionPolygon2D" parent="Colisões" unique_id=987540]
+position = Vector2(4776.3, 312.52502)
 scale = Vector2(0.23099078, 0.25)
-polygon = PackedVector2Array(271.5, -161, 271.5, -158.3, 269.5, -157.2, 269.5, -151, 280.5, -151, 280.5, -157.4)
+polygon = PackedVector2Array(23.5, -224, 20.200012, -221.6, 2.5, -227.5, 2.5, -228.9, -30.5, -230, -35, -230, -74.40918, -227.99976, -83.06738, -227.99976, -96.05469, -227.99976, -154.8, -219, -158, -219, -171, -212, -173.3, -212, -183.3, -202, -184.4, -202, -217.4, -164, -218.9, -164, -224.9, -147, -226.7, -147, -224.5, -122.8, -224.5, -120.3, -246, -110, -248.4, -110, -256.4, -101, -257.9, -101, -263.9, -86, -265, -86, -279, -40, -280.4, -40, -282.5, 11, -282.5, 30.600006, -286.5, 49.799988, -286.5, 53.600006, -292.5, 67.600006, -292.5, 70.399994, -317.6, 112, -319.1, 112, -325.5, 137.9, -325.5, 195.9, -314.5, 232.20001, -314.5, 238.40002, -299.5, 276.40002, -299.5, 277, 321.40002, 277, 325.5, 245.5, 325.5, 173.29999, 323.5, 159.70001, 323.5, 154.70001, 311.5, 114.70001, 311.5, 111.5, 288.5, 70.5, 288.5, 67.29999, 259.5, 30, 259.5, 10.5, 252.5, -2.600006, 252.5, -4.899994, 240.29999, -16, 241.5, -19.700012, 241.5, -33.600006, 238.5, -38.600006, 238.5, -40.899994, 205.29999, -70, 203.59998, -70, 197.59998, -79, 192.5, -102.399994, 192.5, -105.600006, 167.6, -147, 167.5, -149.4, 180.5, -167.4, 180.5, -177.5, 185.3418, -199.99976, 185.3418, -207.99976, 181.0127, -223.99976)
+
+[node name="Pedra3" type="CollisionPolygon2D" parent="Colisões" unique_id=208091570]
+position = Vector2(5095.3, 311.52502)
+scale = Vector2(0.23099078, 0.25)
+polygon = PackedVector2Array(23.5, -224, 20.200012, -221.6, 2.5, -227.5, 2.5, -228.9, -30.5, -230, -35, -230, -74.40918, -227.99976, -83.06738, -227.99976, -96.05469, -227.99976, -154.8, -219, -158, -219, -171, -212, -173.3, -212, -183.3, -202, -184.4, -202, -217.4, -164, -218.9, -164, -224.9, -147, -226.7, -147, -224.5, -122.8, -224.5, -120.3, -246, -110, -248.4, -110, -256.4, -101, -257.9, -101, -263.9, -86, -265, -86, -279, -40, -280.4, -40, -282.5, 11, -282.5, 30.600006, -286.5, 49.799988, -286.5, 53.600006, -292.5, 67.600006, -292.5, 70.399994, -317.6, 112, -319.1, 112, -325.5, 137.9, -325.5, 195.9, -314.5, 232.20001, -314.5, 238.40002, -299.5, 276.40002, -299.5, 277, 321.40002, 277, 325.5, 245.5, 325.5, 173.29999, 323.5, 159.70001, 323.5, 154.70001, 311.5, 114.70001, 311.5, 111.5, 288.5, 70.5, 288.5, 67.29999, 259.5, 30, 259.5, 10.5, 252.5, -2.600006, 252.5, -4.899994, 240.29999, -16, 241.5, -19.700012, 241.5, -33.600006, 238.5, -38.600006, 238.5, -40.899994, 205.29999, -70, 203.59998, -70, 197.59998, -79, 192.5, -102.399994, 192.5, -105.600006, 167.6, -147, 167.5, -149.4, 180.5, -167.4, 180.5, -177.5, 185.3418, -199.99976, 185.3418, -207.99976, 181.0127, -223.99976)
 
 [node name="ComandosJogador" type="Node" parent="." unique_id=1679254832]
 
 [node name="comando pular" parent="ComandosJogador" unique_id=1712714634 instance=ExtResource("7_50ojs")]
-position = Vector2(2222.112, 746.9255)
+position = Vector2(2210, 762)
 texto_da_interacao = "Use [ CTRL ] para pular mais alto"
 
 [node name="comando correr" parent="ComandosJogador" unique_id=1391974503 instance=ExtResource("7_50ojs")]
-position = Vector2(3198, 867)
+position = Vector2(3193, 875)
 texto_da_interacao = "Use [ Shift ] para correr"
 
 [node name="ChaoCaindo" type="Node" parent="." unique_id=1822411563]
 
 [node name="ChaoCaindo" parent="ChaoCaindo" unique_id=536961924 instance=ExtResource("8_n6fpf")]
-position = Vector2(3502, 909.99994)
-scale = Vector2(5.5151553, 4.7224374)
+position = Vector2(3496, 909)
+scale = Vector2(6.0798845, 2.6142914)
 
 [node name="ChaoCaindo2" parent="ChaoCaindo" unique_id=1844498963 instance=ExtResource("8_n6fpf")]
-position = Vector2(3643, 909.99994)
-scale = Vector2(5.5151553, 4.7224374)
+position = Vector2(3637, 909)
+scale = Vector2(6.0798845, 2.6142914)
 
 [node name="ChaoCaindo3" parent="ChaoCaindo" unique_id=1275159079 instance=ExtResource("8_n6fpf")]
-position = Vector2(3784, 909.99994)
-scale = Vector2(5.5151553, 4.7224374)
+position = Vector2(3778, 909)
+scale = Vector2(6.079885, 2.6142871)
 
 [node name="ChaoCaindo4" parent="ChaoCaindo" unique_id=1965052111 instance=ExtResource("8_n6fpf")]
-position = Vector2(3924, 909.99994)
-scale = Vector2(5.5151553, 4.7224374)
+position = Vector2(3918, 909)
+scale = Vector2(6.0798845, 2.6142914)
 
 [node name="ChaoCaindo5" parent="ChaoCaindo" unique_id=880074521 instance=ExtResource("8_n6fpf")]
-position = Vector2(4064, 909.99994)
-scale = Vector2(5.5151553, 4.7224374)
+position = Vector2(4058, 909)
+scale = Vector2(6.079885, 2.6142871)
 
 [node name="Checkpoint" parent="." unique_id=1137813904 instance=ExtResource("9_0gy2o")]
-position = Vector2(2378, -68)
+position = Vector2(2371, -81)
 scale = Vector2(1.186726, -0.5)
 
 [node name="ZonaMorte" parent="." unique_id=1143527099 instance=ExtResource("10_8rolb")]
-position = Vector2(3736, 415)
+position = Vector2(3751, 459)
+scale = Vector2(1.3927815, -0.5)
+
+[node name="ZonaMorte2" parent="." unique_id=607249615 instance=ExtResource("10_8rolb")]
+z_index = 59
+position = Vector2(4948, 468)
 scale = Vector2(1.3927815, -0.5)
 
 [node name="Label" type="Label" parent="." unique_id=785471329]
-offset_left = 4411.0
-offset_top = 93.0
-offset_right = 4570.0
-offset_bottom = 142.0
+offset_left = 6119.0
+offset_top = -14.0
+offset_right = 6382.0
+offset_bottom = 73.0
 text = "Para o laboratório
 >> "
+label_settings = SubResource("LabelSettings_8rolb")
 horizontal_alignment = 1
-
-[node name="MenuPausa" parent="." unique_id=1282330759 instance=ExtResource("11_nvv58")]
 
 [node name="nuvens" type="Node" parent="." unique_id=1353482004]
 
 [node name="Nuvem" parent="nuvens" unique_id=1802820397 instance=ExtResource("17_xqu6a")]
-position = Vector2(269, 329)
+position = Vector2(332, 475)
 
 [node name="Nuvem2" parent="nuvens" unique_id=1253951594 instance=ExtResource("17_xqu6a")]
-position = Vector2(873, 336)
+position = Vector2(936, 482)
 
 [node name="Nuvem3" parent="nuvens" unique_id=1971468825 instance=ExtResource("17_xqu6a")]
-position = Vector2(1658, 312)
+position = Vector2(1754, 383)
 
 [node name="Nuvem4" parent="nuvens" unique_id=206146996 instance=ExtResource("17_xqu6a")]
-position = Vector2(2230, 282)
+position = Vector2(2297, 154)
 
 [node name="Nuvem5" parent="nuvens" unique_id=936775145 instance=ExtResource("17_xqu6a")]
 position = Vector2(3086, 293)
 
 [node name="Nuvem6" parent="nuvens" unique_id=1819161746 instance=ExtResource("17_xqu6a")]
 position = Vector2(3649, 295)
+
+[node name="Nuvem7" parent="nuvens" unique_id=1023942466 instance=ExtResource("17_xqu6a")]
+position = Vector2(4343, 318)
+
+[node name="Nuvem8" parent="nuvens" unique_id=883790935 instance=ExtResource("17_xqu6a")]
+position = Vector2(4906, 320)
+
+[node name="Nuvem9" parent="nuvens" unique_id=385805513 instance=ExtResource("17_xqu6a")]
+position = Vector2(5751, 231)
+
+[node name="Nuvem10" parent="nuvens" unique_id=1172555122 instance=ExtResource("17_xqu6a")]
+position = Vector2(6314, 233)
+
+[node name="TextoHistoria" parent="." unique_id=236072983 instance=ExtResource("12_nvv58")]
+z_index = 20
+position = Vector2(700, 329)
+mensagem = "Animais livres decidem qual caminho querem seguir!"
+
+[node name="TextoHistoria2" parent="." unique_id=1110910800 instance=ExtResource("12_nvv58")]
+z_index = 20
+position = Vector2(1678, 334)
+mensagem = "Conhecer o ambiente em que se vive, te torna mais capaz de dominá-lo."
+
+[node name="TextoHistoria3" parent="." unique_id=216756026 instance=ExtResource("12_nvv58")]
+z_index = 20
+position = Vector2(2464, -40)
+mensagem = "Ultrapassar obstáculos, te torna forte e sagaz!"
+
+[node name="TextoHistoria4" parent="." unique_id=2085027773 instance=ExtResource("12_nvv58")]
+z_index = 20
+position = Vector2(5728, 322)
+mensagem = "Há algo de estranho pela frente, é melhor verificar com cuidado."
+
+[node name="ControlesInicio" parent="." unique_id=1093906163 instance=ExtResource("13_3xbke")]

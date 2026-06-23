@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://d1205l6qtdsuj"]
+
+[ext_resource type="Script" uid="uid://bwhwxiypam74a" path="res://scripts/intro.gd" id="1_6wh4w"]
+
+[node name="Final" type="Control" unique_id=527308221]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6wh4w")
+historia = Array[String](["A gaiola dos coelhos foi aberta....", "A maioria deles conseguiu escapar, porém ainda é dificil pois são pequenos e frágeis.", "Ainda há muito a ser feito neste laboratório.", "Mas por enquanto...", "Um grande passo para a mudança já foi dado.", "Você chegou ao fim, por enquanto.", "Muito obrigado por jogar esta demo!!"])
+caminho_proxima_cena = "res://cenas/menu_inicio.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=769469612]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=204740142]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -11.5
+offset_right = 93.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "descricao"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Skip" type="Label" parent="." unique_id=1084625242]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -241.0
+offset_top = -89.0
+offset_right = -39.0
+offset_bottom = -66.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "[ E ] aperte/segure para pular introdução"
+horizontal_alignment = 1
+vertical_alignment = 1

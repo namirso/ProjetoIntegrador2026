@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://d2hhm663btaqi"]
+
+[ext_resource type="Script" uid="uid://bgdryf0cb83gs" path="res://texto_historia.gd" id="1_2pdgp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a8jto"]
+radius = 264.09277
+
+[sub_resource type="LabelSettings" id="LabelSettings_nf7ko"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+outline_size = 12
+
+[node name="TextoHistoria" type="Area2D" unique_id=236072983]
+script = ExtResource("1_2pdgp")
+mensagem = "historia"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=137568208]
+scale = Vector2(0.48000133, 0.5347397)
+shape = SubResource("CircleShape2D_a8jto")
+
+[node name="Label" type="Label" parent="." unique_id=144047940]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = -199.0
+offset_right = 67.5
+offset_bottom = -176.0
+grow_horizontal = 2
+text = "
+"
+label_settings = SubResource("LabelSettings_nf7ko")
+horizontal_alignment = 1

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://0w0ucwnhi140"]
+
+[ext_resource type="Script" uid="uid://bchfb2ghs4mm6" path="res://tela_morte.gd" id="1_23771"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3v3mb"]
+font_size = 31
+
+[node name="TelaMorte" type="CanvasLayer" unique_id=138297328]
+process_mode = 3
+layer = 100
+script = ExtResource("1_23771")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=204696978]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.58431375)
+
+[node name="Label" type="Label" parent="." unique_id=930991050]
+offset_left = 499.5
+offset_top = 208.5
+offset_right = 780.5
+offset_bottom = 346.5
+text = "VOCÊ CAIU.
+
+Tente novamente!!"
+label_settings = SubResource("LabelSettings_3v3mb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=598829360]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = 33.0
+offset_right = 43.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Continuar" type="Button" parent="VBoxContainer" unique_id=1467170157]
+layout_mode = 2
+text = "Continuar"

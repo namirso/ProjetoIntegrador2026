@@ -5,7 +5,14 @@
 [sub_resource type="LabelSettings" id="LabelSettings_bnns3"]
 font_size = 25
 
+[sub_resource type="FontVariation" id="FontVariation_yi4s2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_si6cd"]
+font = SubResource("FontVariation_yi4s2")
+font_size = 30
+
 [node name="MenuPausa" type="CanvasLayer" unique_id=1282330759]
+layer = 100
 script = ExtResource("1_yi4s2")
 
 [node name="Panel" type="Panel" parent="." unique_id=1447084829]
@@ -48,8 +55,159 @@ grow_vertical = 2
 
 [node name="continuar" type="Button" parent="Panel/VBoxContainer" unique_id=665387595]
 layout_mode = 2
+action_mode = 0
 text = "Continuar"
+
+[node name="controles" type="Button" parent="Panel/VBoxContainer" unique_id=141801250]
+layout_mode = 2
+text = "Controles
+"
 
 [node name="voltarMenu" type="Button" parent="Panel/VBoxContainer" unique_id=1356642979]
 layout_mode = 2
 text = "Voltar ao Menu Principal"
+
+[node name="Controles" type="Panel" parent="." unique_id=1333361976]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Controles" unique_id=1327715962]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.5
+offset_top = -147.5
+offset_right = 304.5
+offset_bottom = 147.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.44291076, 0.44291076, 0.44291073, 1)
+
+[node name="Label" type="Label" parent="Controles" unique_id=1165526510]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -236.5
+offset_right = 70.0
+offset_bottom = -149.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Controles
+"
+label_settings = SubResource("LabelSettings_si6cd")
+
+[node name="andar" type="RichTextLabel" parent="Controles" unique_id=394287490]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = -109.0
+offset_right = -136.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Andar 
+
+[ <= ]     [ => ]"
+horizontal_alignment = 1
+
+[node name="correr" type="RichTextLabel" parent="Controles" unique_id=481842419]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = 28.0
+offset_right = -136.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Correr
+
+[ Shift ]"
+horizontal_alignment = 1
+
+[node name="pular" type="RichTextLabel" parent="Controles" unique_id=1413083924]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -109.0
+offset_right = 73.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pular
+
+[ Espaço ]"
+horizontal_alignment = 1
+
+[node name="pausar" type="RichTextLabel" parent="Controles" unique_id=260472873]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 128.0
+offset_top = -109.0
+offset_right = 274.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pausar
+
+[ Esc ]"
+horizontal_alignment = 1
+
+[node name="pulocarregado" type="RichTextLabel" parent="Controles" unique_id=807627366]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = 29.0
+offset_right = 73.0
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pulo Carregado
+
+[ Ctrl Esquerdo ]"
+horizontal_alignment = 1
+
+[node name="voltarControles" type="Button" parent="Controles" unique_id=21278779]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -174.0
+offset_right = 52.0
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Voltar"

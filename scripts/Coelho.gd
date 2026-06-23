@@ -15,9 +15,11 @@ const MIN_CHARGE_JUMP = -300.0
 const MAX_CHARGE_JUMP = -700.0 
 const MAX_CHARGE_TIME = 1.0 
 
+const TELA_MORTE = preload("res://cenas/tela_morte.tscn")
+
 var is_jumping := false
 var on_wall := false
-var ativo := true # Mantido para o portal identificar o jogador
+var ativo := true
 var wall_jump_timer := 0.0
 var wall_time_spent := 0.0 
 var posicao_checkpoint: Vector2
@@ -53,90 +55,106 @@ func _physics_process(delta: float) -> void:
 		on_wall = false
 		wall_time_spent = 0.0 
 
-	if wall_jump_timer > 0:
-		wall_jump_timer -= delta
-
-	var direction := Input.get_axis("ui_left", "ui_right")
-
-	var touching_left = ray_left.is_colliding()
-	var touching_right = ray_right.is_colliding()
-
-	on_wall = (
-		(touching_left and direction < 0 or touching_right and direction > 0)
-		and not is_on_floor()
-		and velocity.y > 0
-		and wall_time_spent < MAX_WALL_TIME
-	)
-
-	if direction != 0:
-		sprite.flip_h = direction < 0
-
-	if is_charging:
-		direction = 0.0
-
-	if wall_jump_timer <= 0:
-		if not on_wall:
-			if direction != 0:
-				var current_speed := SPEED
-				
-				sprite.speed_scale = 1.0 
-				
-				if is_on_floor() and Input.is_action_pressed("acao_correr"):
-					current_speed = RUN_SPEED
-					
-					sprite.speed_scale = 1.5 
-
-				velocity.x = direction * current_speed
-			else:
-				var f = FRICTION if is_on_floor() else AIR_FRICTION
-				velocity.x = move_toward(velocity.x, 0, f * delta)
-				
-				sprite.speed_scale = 1.0
-
-	if on_wall:
-		wall_time_spent += delta
+	if Global.lendo_historia:
+		var f = FRICTION if is_on_floor() else AIR_FRICTION
+		velocity.x = move_toward(velocity.x, 0, f * delta)
 		
-		velocity.y = min(velocity.y, WALL_SLIDE_SPEED)
+		is_charging = false
+		charge_time = 0.0
+		charge_bar.visible = false
+		
+		sprite.play("idle")
+		sprite.speed_scale = 1.0
 
-		if Input.is_action_just_pressed("ui_accept"):
-			var jump_dir = 1 if touching_left else -1
-			
-			velocity = Vector2(WALL_JUMP_FORCE.x * jump_dir, WALL_JUMP_FORCE.y)
-			on_wall = false
-			is_jumping = true
-			
-			wall_jump_timer = 0.15
-			wall_time_spent = 0.0 
+	else:
+		if wall_jump_timer > 0:
+			wall_jump_timer -= delta
 
-	if is_on_floor():
-		if Input.is_action_pressed("pulo_carregado"):
-			is_charging = true
-			charge_time = min(charge_time + delta, MAX_CHARGE_TIME)
-			
-			charge_bar.visible = true
-			charge_bar.value = charge_time
-			
-		elif Input.is_action_just_released("pulo_carregado") and is_charging:
-			var charge_ratio = charge_time / MAX_CHARGE_TIME
-			velocity.y = lerp(MIN_CHARGE_JUMP, MAX_CHARGE_JUMP, charge_ratio)
-			
-			is_jumping = true
-			is_charging = false
-			charge_time = 0.0
-			charge_bar.visible = false 
+		var direction := Input.get_axis("ui_left", "ui_right")
+
+		var touching_left = ray_left.is_colliding()
+		var touching_right = ray_right.is_colliding()
+
+		on_wall = (
+			(touching_left and direction < 0 or touching_right and direction > 0)
+			and not is_on_floor()
+			and velocity.y > 0
+			and wall_time_spent < MAX_WALL_TIME
+		)
+
+		if direction != 0:
+			sprite.flip_h = direction < 0
 		else:
-			if not Input.is_action_pressed("pulo_carregado"):
+			sprite.play("idle")
+
+		if is_charging:
+			direction = 0.0
+
+		if wall_jump_timer <= 0:
+			if not on_wall:
+				if direction != 0:
+					var current_speed := SPEED
+					
+					sprite.speed_scale = 1.0 
+					
+					if is_on_floor() and Input.is_action_pressed("acao_correr"):
+						current_speed = RUN_SPEED
+						
+						sprite.speed_scale = 1.5 
+
+					velocity.x = direction * current_speed
+				else:
+					var f = FRICTION if is_on_floor() else AIR_FRICTION
+					velocity.x = move_toward(velocity.x, 0, f * delta)
+					
+					sprite.speed_scale = 1.0
+
+		if on_wall:
+			wall_time_spent += delta
+			
+			velocity.y = min(velocity.y, WALL_SLIDE_SPEED)
+
+			if Input.is_action_just_pressed("ui_accept"):
+				var jump_dir = 1 if touching_left else -1
+				
+				velocity = Vector2(WALL_JUMP_FORCE.x * jump_dir, WALL_JUMP_FORCE.y)
+				on_wall = false
+				is_jumping = true
+				
+				wall_jump_timer = 0.15
+				wall_time_spent = 0.0 
+
+		if is_on_floor():
+			if Input.is_action_pressed("pulo_carregado"):
+				is_charging = true
+				charge_time = min(charge_time + delta, MAX_CHARGE_TIME)
+				
+				charge_bar.visible = true
+				charge_bar.value = charge_time
+				
+			elif Input.is_action_just_released("pulo_carregado") and is_charging:
+				var charge_ratio = charge_time / MAX_CHARGE_TIME
+				velocity.y = lerp(MIN_CHARGE_JUMP, MAX_CHARGE_JUMP, charge_ratio)
+				
+				is_jumping = true
 				is_charging = false
 				charge_time = 0.0
 				charge_bar.visible = false 
+			else:
+				if not Input.is_action_pressed("pulo_carregado"):
+					is_charging = false
+					charge_time = 0.0
+					charge_bar.visible = false 
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not is_charging:
-		velocity.y = JUMP_VELOCITY
-		is_jumping = true
-	
-		
+		if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not is_charging:
+			velocity.y = JUMP_VELOCITY
+			is_jumping = true
 
 	move_and_slide()
 
-func morrer():
-	get_tree().call_deferred("reload_current_scene")
+func morrer() -> void:
+	set_physics_process(false)
+	
+	var tela = TELA_MORTE.instantiate()
+	
+	get_tree().current_scene.call_deferred("add_child", tela)

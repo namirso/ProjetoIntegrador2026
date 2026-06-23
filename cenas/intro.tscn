@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_37pbl")
 historia = Array[String](["\"Querer ser livre, é querer livres os outros.\"
-- Simone de Beauvoir", "Um pequeno coelho descobriu algo extraordinário.", "Mas o perigo estava à espreita nos laboratórios...", "Agora, a jornada começa!"])
+- Simone de Beauvoir", "Um pequeno coelho silvestre, que vivia na floresta", "Descobriu um grande perigo, e não era um simples predador...", "Quando pensamos em predadores, imaginamos leões ou tubarões.", "Mas o maior predador que já existiu é aquele que se autoproclama racional!", "Descubra o que esta floresta esconde.", "Agora, sua jornada começa!"])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=769469612]
 layout_mode = 1
@@ -36,7 +36,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "this place about to blow"
+text = "descricao"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -53,6 +53,6 @@ offset_right = -39.0
 offset_bottom = -66.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "[ E ] para pular introdução"
+text = "[ E ] aperte/segure para pular introdução"
 horizontal_alignment = 1
 vertical_alignment = 1

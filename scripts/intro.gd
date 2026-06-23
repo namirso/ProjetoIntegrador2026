@@ -1,18 +1,18 @@
 extends Control
 
 @export_multiline var historia: Array[String] = [
-	"Há muito tempo, em uma floresta distante...",
-	"Um pequeno coelho descobriu algo extraordinário.",
-	"Mas o perigo esitava à espreita nos laboratórios...",
-	"Agora, a jornada começa!"
+	"Historia"
 ]
+
+@export var caminho_proxima_cena: String = "res://cenas/fases/floresta.tscn"
+@export var usar_tela_carregamento: bool = true
 
 @onready var label_texto: Label = $Label 
 var frase_atual := 0
 var tween: Tween
 
 var tempo_pressionado := 0.0
-const TEMPO_PARA_PULAR_TUDO := 1.0 
+const TEMPO_PARA_PULAR_TUDO := 0.5 
 
 func _ready() -> void:
 	label_texto.modulate.a = 0.0
@@ -72,5 +72,8 @@ func pular_frase() -> void:
 
 
 func iniciar_jogo() -> void:
-	Global.proxima_fase_path = "res://cenas/fases/floresta.tscn"
-	get_tree().change_scene_to_file("res://cenas/tela_carregamento.tscn")
+	if usar_tela_carregamento:
+		Global.proxima_fase_path = caminho_proxima_cena
+		get_tree().change_scene_to_file("res://cenas/tela_carregamento.tscn")
+	else:
+		get_tree().change_scene_to_file(caminho_proxima_cena)

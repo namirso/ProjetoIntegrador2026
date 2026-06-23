@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cqkqk31mmx404"]
+
+[ext_resource type="Script" uid="uid://cf1o4ax02xf6i" path="res://cenas/tutorial_walljump.gd" id="1_rx1hl"]
+[ext_resource type="Texture2D" uid="uid://f424wotfv1v3" path="res://assets/cenario/tutorial.png" id="2_h3fky"]
+
+[node name="TutorialWalljump" type="CanvasLayer" unique_id=740749375]
+process_mode = 3
+layer = 83
+script = ExtResource("1_rx1hl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1013796652]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 0.61960787)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=181129251]
+offset_left = 205.0
+offset_top = 86.0
+offset_right = 1067.0
+offset_bottom = 598.0
+texture = ExtResource("2_h3fky")
+
+[node name="Label" type="Label" parent="." unique_id=1150343972]
+offset_left = 1088.0
+offset_top = 625.0
+offset_right = 1235.0
+offset_bottom = 686.0
+text = "[ E ] para continuar"
+horizontal_alignment = 1
+vertical_alignment = 1

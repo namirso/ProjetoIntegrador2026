@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://7bapt1mt0nlg"]
+
+[ext_resource type="Script" uid="uid://bk7kk3lrjv881" path="res://controles_inicio.gd" id="1_3xr3c"]
+
+[node name="ControlesInicio" type="CanvasLayer" unique_id=1093906163]
+script = ExtResource("1_3xr3c")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=316551751]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.014
+anchor_right = 1.0
+anchor_bottom = 0.014
+offset_left = -167.0
+offset_top = 1.9200001
+offset_right = -15.0
+offset_bottom = 107.92
+grow_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1739802041]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=963977846]
+layout_mode = 2
+text = " <=    =>  | Andar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1656795363]
+layout_mode = 2
+text = " Espaço | Pular"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1511776609]
+layout_mode = 2
+text = "      ESC   | Pause"
+horizontal_alignment = 1
